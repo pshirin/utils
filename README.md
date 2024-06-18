@@ -36,13 +36,16 @@ console.log(isIndexable(obj4)); // false
 ```
 
 ### isObject
+
 Функция `isObject` проверяет, является ли переданный ей аргумент объектом.
+
 ```typescript
 const isObject = (obj: unknown): obj is Record<PropertyKey, unknown> =>
-  typeof obj === "object" && !Array.isArray(obj);
-
+  typeof obj === "object" && !Array.isArray(obj) && obj !== null;
 ```
+
 Пример использования:
+
 ```typescript
 console.log(isObject({})); // true
 console.log(isObject([])); // false
@@ -50,7 +53,9 @@ console.log(isObject("I am a string")); // false
 ```
 
 ### hasOwnNestedProperty
+
 Функция hasOwnNestedProperty проверяет наличие вложенного свойства в объекте. Функция возвращает boolean и дженерик переданного типа, расширенный рекурсивным типом определенного объекта.
+
 ```typescript
 const hasOwnNestedProperty = <T, S extends string>(
   object: T,
@@ -69,8 +74,10 @@ const hasOwnNestedProperty = <T, S extends string>(
   return true;
 };
 ```
+
 Пример использования:
-```typescript 
+
+```typescript
 const obj = { power: { rangers: { red: "Jason" } } };
 console.log(hasOwnNestedProperty(obj, "power.rangers.red")); // true
 console.log(hasOwnNestedProperty(obj, "power.rangers.blue")); // false

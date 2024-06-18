@@ -17,6 +17,6 @@
  */
 
 const isObject = (obj: unknown): obj is Record<PropertyKey, unknown> =>
-  typeof obj === "object" && !Array.isArray(obj);
+  typeof obj === "object" && !Array.isArray(obj) && obj !== null;
 
 export default isObject;
