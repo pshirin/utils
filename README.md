@@ -71,13 +71,10 @@ const hasOwnNestedProperty = <T, S extends string>(
 ```
 Пример использования:
 ```typescript 
-import hasOwnNestedProperty from './utils/hasOwnNestedProperty';
-
 const obj = { power: { rangers: { red: "Jason" } } };
 console.log(hasOwnNestedProperty(obj, "power.rangers.red")); // true
 console.log(hasOwnNestedProperty(obj, "power.rangers.blue")); // false
 console.log(hasOwnNestedProperty(obj, "power")); // true
 console.log(hasOwnNestedProperty(obj, "power.rangers")); // true
 console.log(hasOwnNestedProperty(obj, "power.rangers.green")); // false
-
 ```
